@@ -1,0 +1,14 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+counter = 0  # Глобальная переменная
+
+@app.get('/counter')
+def counter_route():
+    global counter  # Объявляем, что используем глобальную переменную
+    counter += 1
+    return {
+        "counter": counter
+    }
+# Website-
